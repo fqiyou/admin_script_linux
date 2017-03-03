@@ -36,7 +36,7 @@ function add_path(){
 function is_exit(){
 	last_res=$1
 	if [ "$last_res" -ne 0 ];then
-		echo "error !!!! plase  "
+		echo "error !!!! plase  check..........."
 		exit 1 
 	fi
 }
@@ -46,22 +46,17 @@ add_var JAVA_HOME
 add_var JAVA_W_HOME
 add_var JAVA_VERSION
 JAVA_W_HOME=$COOKIES$JAVA_W_HOME
-echo "-----------------------downfile--`date +%T`---------------------------"
 rm -rf $DOWN_DIR && mkdir -p $DOWN_DIR
 is_exit $?
 echo "wait down file ....."
 nohup wget -P $DOWN_DIR  $JAVA_W_HOME > $LOG_NAME 2>&1
 is_exit $?
-echo "-----------------------downfile--`date +%T`---------------------------"
-
-echo "-----------------------tarfile--`date +%T`----------------------------"
 JAR_NAME=`ls $DOWN_DIR`
 mkdir -p $JAVA_HOME 
 is_exit $?
 echo "wait tar file ....."
 nohup tar -zxvf $DOWN_DIR$JAR_NAME -C $JAVA_HOME >> $LOG_NAME 2>&1
 is_exit $?
-echo "-----------------------tarfile--`date +%T`---------------------------"
 add_path
 java -version
 echo "-----------------------end_time--`date +%Y-%m-%d\ %T`-------------------------"
