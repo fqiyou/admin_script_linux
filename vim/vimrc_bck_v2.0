@@ -87,7 +87,7 @@ func SetCommentPy()
 	call append(line(".")+3, "#   Mail    :yc@fqiyou.com")
 	call append(line(".")+4, "#   Date    :".strftime("%Y-%m-%d")) 
 	call append(line(".")+5, "#   Describe:") 
-	call append(line(".")+6, "######################################################    #") 
+	call append(line(".")+6, "#######################################################") 
 endfunc
 
 
